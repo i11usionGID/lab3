@@ -6,29 +6,30 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        Boss boss1 = new Boss("Капитанов", "Капитан");
-        Boss boss2 = new Boss("Майоров", "Майор");
-        Boss boss3 = new Boss("Полковников", "Полковник");
-        Boss boss4 = new Boss("Генеральный", "Генерал");
-        System.out.println(boss4);
-        List bosses = new ArrayList();
-        bosses.add(boss4);
-        bosses.add(boss1);
-        bosses.add(boss3);
-        bosses.add(boss2);
-        Command command = new Command(bosses);
-        command.setSurname("Новиков");
-        command.setCompany(9);
-        command.setRank("новобранец");
-        LocalDate birthday = LocalDate.of(2006, 1, 1);
-        LocalDate startServe = LocalDate.of(2024, 3, 1);
-        command.setBirthday(birthday);
-        command.setStartServe(startServe);
-        command.setUnitNumber(1);
-        System.out.println(command);
-        command.sortBosses();
-        System.out.println(command);
-        command.deleteBossById(1);
-        System.out.println(command);
+        Command command1 = new Command("Ротов", 3, "Новобранец",LocalDate.of(2006, 1, 20));
+        Command command2 = new Command("Новобранченко", 2, "Новобранец",LocalDate.of(2006, 2, 19));
+        Command command3 = new Command("Новиков", 1, "Новобранец",LocalDate.of(2006, 3, 14));
+        Command command4 = new Command("Сортиров", 9, "Новобранец",LocalDate.of(2006, 1, 3));
+        command1.setUnitNumber(4);
+        command1.setStartServe(LocalDate.of(2024, 3, 12));
+        command2.setUnitNumber(3);
+        command2.setStartServe(LocalDate.of(2024, 4, 13));
+        command3.setUnitNumber(2);
+        command3.setStartServe(LocalDate.of(2024, 5, 14));
+        command4.setUnitNumber(1);
+        command4.setStartServe(LocalDate.of(2024, 2, 15));
+        System.out.println(command4);
+        ArrayList<Command> command = new ArrayList<>();
+        command.add(command1);
+        command.add(command1);
+        command.add(command1);
+        command.add(command1);
+        Group group = new Group(command);
+        group.getGroup();
+        group.getCommand(command1);
+        group.sortGroup();
+        System.out.println(group);
+        group.deleteCommandById(1);
+        System.out.println(group);
     }
 }
